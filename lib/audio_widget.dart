@@ -9,6 +9,7 @@ class AudioWidget extends StatefulWidget {
   ValueChanged<Duration>? onSeekBarMoved;
   final Duration totalTime;
 
+  // Stateful Widget Constructor
   AudioWidget({
     Key? key,
     this.isPlaying = false,
@@ -26,6 +27,7 @@ class _AudioWidgetState extends State<AudioWidget> {
   double _sliderValue = 0.0;
   bool _userIsMovingSlider = false;
 
+  // Called only the first time when the widget is built
   void initState() {
     super.initState();
     _sliderValue = _getSliderValue();
@@ -54,12 +56,14 @@ class _AudioWidgetState extends State<AudioWidget> {
     );
   }
 
+  // Building the total time text
   Text _buildTotalTimeLabel() {
     return Text(
       _getTimeString(1.0),
     );
   }
 
+  // Building the current time text
   Text _buildCurrentTimeLabel() {
     return Text(
       _getTimeString(_sliderValue),
@@ -69,6 +73,7 @@ class _AudioWidgetState extends State<AudioWidget> {
     );
   }
 
+  // Constructing the Slider
   Slider _buildSeekBar(BuildContext context) {
     return Slider(
       value: _sliderValue,
@@ -92,8 +97,10 @@ class _AudioWidgetState extends State<AudioWidget> {
     );
   }
 
+  // Building play/pause button
   IconButton _buildPlayPauseButton() {
     return IconButton(
+      // Icon is chosen based on isPlaying
       icon: (widget.isPlaying)
           ? const Icon(Icons.pause)
           : const Icon(Icons.play_arrow),
@@ -106,15 +113,19 @@ class _AudioWidgetState extends State<AudioWidget> {
     );
   }
 
+  // Calculate the current time, based on slider value
+  // Used when user is manually moving the slider
   Duration _getDuration(double sliderValue) {
     final seconds = widget.totalTime.inSeconds * sliderValue;
     return Duration(seconds: seconds.toInt());
   }
 
+  // Calculating the slider value - Slider value range - 0.0 -> 1.0
   double _getSliderValue() {
     return widget.currentTime.inMilliseconds / widget.totalTime.inMilliseconds;
   }
 
+  // Generating the time string, based on the slider value
   _getTimeString(double sliderValue) {
     final time = _getDuration(sliderValue);
 
@@ -123,6 +134,7 @@ class _AudioWidgetState extends State<AudioWidget> {
       return "0$n";
     }
 
+    // Creating the time string
     final minutes =
         twoDigits(time.inMinutes.remainder(Duration.minutesPerHour));
     final seconds =
