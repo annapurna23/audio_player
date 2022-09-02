@@ -9,9 +9,7 @@ We are going to use simple basic widgets to create a custom widget. This is call
 We can create a package of this & reuse this custom widget in any project that we want.
 
 The widget that we have in this project is as shown below:
-
-<img>
-
+![Custom Widget](https://github.com/annapurna23/audio_player/blob/main/screenshots/custom%20widget.png?raw=true)
 1. Container: all the simple widgets will be inside a container
 2. Icon: play/pause button
 3. Text: current time of the track
@@ -19,8 +17,9 @@ The widget that we have in this project is as shown below:
 5. Text: the total time of the track
 6. Row: all the widgets are inside a row widget.
 
-### About the app
+You can checkout the app face from the [screenshot here](https://github.com/annapurna23/audio_player/blob/main/screenshots/app-image.png).
 
+### About the app
 This is a simple app with just one audio track. Purpose is to demonstrate how to create custom widget.
 Features implemented:
 - View Model
@@ -28,8 +27,8 @@ Features implemented:
 - Basic flutter widget
 
 packages used:
-Audio Player: https://pub.dev/packages/audioplayers
-Stacked: https://pub.dev/packages/stacked
+Audio Player: https://pub.dev/packages/audioplayers <br>
+Stacked: https://pub.dev/packages/stacked <br>
 
 Make sure you have the latest versions of the package. Feel free to fork changes(if any).
 
